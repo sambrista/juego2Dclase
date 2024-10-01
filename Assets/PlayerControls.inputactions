@@ -115,6 +115,17 @@
                 },
                 {
                     "name": "",
+                    "id": "00bc96f8-ced5-4105-8471-32ef7f2b9a01",
+                    "path": "<Gamepad>/dpad",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "d97217e8-5e62-4f6b-8aea-c114fd55dc14",
                     "path": "<Keyboard>/w",
                     "interactions": "",
@@ -139,6 +150,17 @@
                     "name": "",
                     "id": "52132091-b5db-4923-988b-23a0e42d00a3",
                     "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "39fae7d5-3248-41ca-a458-5d726cdc3e37",
+                    "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
