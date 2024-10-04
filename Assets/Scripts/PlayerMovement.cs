@@ -6,6 +6,8 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     public Rigidbody2D rb;
+    public Animator animator;
+
     bool isFacingRight = true;
     [Header("Movement")]
     public float moveSpeed = 5f;
@@ -29,6 +31,8 @@ public class PlayerMovement : MonoBehaviour
     {
         rb.velocity = new Vector2(horizontalMovement * moveSpeed, rb.velocity.y);
         flip();
+        animator.SetFloat("yVelocity", rb.velocity.y);
+        animator.SetFloat("magnitude", rb.velocity.magnitude);
     }
 
     public void Move(InputAction.CallbackContext context) {
@@ -39,6 +43,7 @@ public class PlayerMovement : MonoBehaviour
         if (isGrounded()) {
             if (context.performed) {
                 rb.velocity=new Vector2(rb.velocity.x, jumpPower);
+                animator.SetTrigger("jump");
             }
         }
     }
