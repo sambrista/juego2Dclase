@@ -22,25 +22,32 @@ public class GameController : MonoBehaviour
         }
         pointsEarned = 0;
         Gem.OnGemCollect += IncreasePointsEarned;
+        PlayerHealth.OnPlayerDied += FinishGame;
     }
 
     void IncreasePointsEarned(int amount) {
-        Debug.Log(amount);
         pointsEarned += amount;
-        if (pointsEarned >= pointsToFinish) {
+        if (pointsEarned == pointsToFinish) {
             scoreText.text = "Score: " + pointsEarned + " / " + pointsToFinish;
             gameResultText.text = "YOU WIN!";
             gameOverScreen.SetActive(true);
         }
+    }
+    
+    void FinishGame() {
+        scoreText.text = "Score: " + pointsEarned + " / " + pointsToFinish;
+        gameResultText.text = "YOU LOST!";
+        gameOverScreen.SetActive(true);
+    }
+
+
+    public void PlayAgain() {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     // Update is called once per frame
     void Update()
     {
         
-    }
-
-    public void PlayAgain() {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
