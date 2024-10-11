@@ -28,20 +28,25 @@ public class GameController : MonoBehaviour
     void IncreasePointsEarned(int amount) {
         pointsEarned += amount;
         if (pointsEarned == pointsToFinish) {
+            SoundEffectManager.playGameWinSound();
             scoreText.text = "Score: " + pointsEarned + " / " + pointsToFinish;
             gameResultText.text = "YOU WIN!";
+            MusicManager.PauseMusic();
             gameOverScreen.SetActive(true);
         }
     }
     
     void FinishGame() {
+        SoundEffectManager.playGameLostSound();
         scoreText.text = "Score: " + pointsEarned + " / " + pointsToFinish;
         gameResultText.text = "YOU LOST!";
+        MusicManager.PauseMusic();
         gameOverScreen.SetActive(true);
     }
 
 
     public void PlayAgain() {
+        MusicManager.ResetBackgroundMusic();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
