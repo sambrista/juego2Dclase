@@ -55,4 +55,10 @@ public class GameController : MonoBehaviour
     {
         
     }
+
+    void OnDestroy()
+    {
+        Gem.OnGemCollect -= IncreasePointsEarned;
+        PlayerHealth.OnPlayerDied -= FinishGame;
+    }
 }
